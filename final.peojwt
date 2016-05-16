@@ -23,10 +23,10 @@ class paddle(Sprite):
         self.fxcenter = self.fycenter = 0.5
     def moveUp(self,event):
         if self.y>0:
-            self.y-=70
+            self.y-=100
     def moveDown(self,event):
         if self.y<400:
-            self.y+=10
+            self.y+=100
 class paddle1(paddle):
     asset=RectangleAsset(25,100,thinline,black)
     def __init__(self, position):
