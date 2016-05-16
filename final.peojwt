@@ -53,7 +53,9 @@ class ball(Sprite):
         if self.x<=0 or self.x >= 475:
             self.destroy()
         if len(self.collidingWithSprites(paddle1)) > 0:
+            self.v[0]*=-1
         if len(self.collidingWithSprites(paddle2)) > 0:
+            self.v[0]*=-1
     
 
         
