@@ -34,7 +34,10 @@ class paddle2(paddle):
         super().__init__(paddle1.asset, position)
         pong.listenKeyEvent('keydown', 'w', self.moveUp)
         pong.listenKeyEvent('keydown', 's', self.moveDown)
-    
+
+class ball(Sprite):
+    def __init__(self, asset, position):
+        
 
         
 pong().run()
