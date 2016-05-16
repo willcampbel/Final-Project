@@ -1,0 +1,41 @@
+from ggame import App, LineStyle, CircleAsset, RectangleAsset, Sprite, Color
+black = Color(0x000000, 1.0)
+thinline = LineStyle(0,black)
+
+class pong(App):
+    def __init__(self):
+        super().__init__()
+        Sprite(RectangleAsset(500,5,thinline,black), (0,0))
+        Sprite(RectangleAsset(5,500,thinline,black), (500,0))
+        Sprite(RectangleAsset(500,5,thinline,black), (0,495))
+        Sprite(RectangleAsset(5,500,thinline,black), (0,0))
+        paddle1((470,0))
+        paddle2((10,0))
+        
+class paddle(Sprite):
+    def __init__(self, asset, position):
+        super().__init__(asset, position)
+        self.fxcenter = self.fycenter = 0.5
+    def moveUp(self,event):
+        if self.y>0:
+            self.y-=10
+    def moveDown(self,event):
+        if self.y<400:
+            self.y+=10
+class paddle1(paddle):
+    asset=RectangleAsset(25,100,thinline,black)
+    def __init__(self, position):
+        super().__init__(paddle1.asset, position)
+        pong.listenKeyEvent('keydown', 'up arrow', self.moveUp)
+        pong.listenKeyEvent('keydown', 'down arrow', self.moveDown)
+class paddle2(paddle):
+    asset=RectangleAsset(25,100,thinline,black)
+    def __init__(self, position):
+        super().__init__(paddle1.asset, position)
+        pong.listenKeyEvent('keydown', 'w', self.moveUp)
+        pong.listenKeyEvent('keydown', 's', self.moveDown)
+    
+
+        
+pong().run()
+
