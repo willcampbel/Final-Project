@@ -1,4 +1,5 @@
 from ggame import App, LineStyle, CircleAsset, RectangleAsset, Sprite, Color
+
 black = Color(0x000000, 1.0)
 thinline = LineStyle(0,black)
 
@@ -11,6 +12,7 @@ class pong(App):
         Sprite(RectangleAsset(5,500,thinline,black), (0,0))
         paddle1((470,0))
         paddle2((10,0))
+        ball((250,250))
         
 class paddle(Sprite):
     def __init__(self, asset, position):
@@ -36,7 +38,11 @@ class paddle2(paddle):
         pong.listenKeyEvent('keydown', 's', self.moveDown)
 
 class ball(Sprite):
-    def __init__(self, asset, position):
+    asset=CircleAsset(25,thinline,black)
+    def __init__(self, position):
+        super().__init__(ball.asset, position)
+    
+
         
 
         
