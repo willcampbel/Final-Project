@@ -44,7 +44,7 @@ class ball(Sprite):
     asset=CircleAsset(25,thinline,black)
     def __init__(self, position):
         super().__init__(ball.asset, position)
-        self.v = (1,1)
+        self.v = (.5,.1)
     def step(self):
         self.x += self.v[0]
         self.y += self.v[1]
