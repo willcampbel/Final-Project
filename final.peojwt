@@ -23,7 +23,7 @@ class paddle(Sprite):
         self.fxcenter = self.fycenter = 0.5
     def moveUp(self,event):
         if self.y>0:
-            self.y-=10
+            self.y-=70
     def moveDown(self,event):
         if self.y<400:
             self.y+=10
@@ -44,7 +44,8 @@ class ball(Sprite):
     asset=CircleAsset(25,thinline,black)
     def __init__(self, position):
         super().__init__(ball.asset, position)
-        self.v = (.5,.1)
+        self.v = (0.5,0.1)
+        self.circularCollisionModel()
     def step(self):
         self.x += self.v[0]
         self.y += self.v[1]
