@@ -48,6 +48,12 @@ class ball(Sprite):
     def step(self):
         self.x += self.v[0]
         self.y += self.v[1]
+        def moveUp(self,event):
+        if self.y>0:
+            self.y-=25
+    def moveDown(self,event):
+        if self.y<400:
+            self.y+=25
     
 
         
