@@ -14,6 +14,9 @@ class pong(App):
         paddle2((10,0))
         ball((250,250))
         
+    def step(self):
+        self.getSpritesbyClass(ball)[0].step()
+        
 class paddle(Sprite):
     def __init__(self, asset, position):
         super().__init__(asset, position)
